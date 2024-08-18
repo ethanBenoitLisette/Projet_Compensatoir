@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mon Site</title>
-    </head>
-    <body>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<h1>Connexion</h1>
+<form method="POST" action="/">
+    <label for="username">Nom d'utilisateur :</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Se connecter</button>
+</form>
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+<p>Pas encore de compte ? <a href="{{ url_for('signup') }}">Inscrivez-vous ici</a>.</p>
+{% endblock %}

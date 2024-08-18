@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Matchs{% endblock %}
+{% block content %}
+<h1>Liste des matchs</h1>
+<div class="cards">
+    {% for match in matches %}
+    <div class="card">
+        <a href="{{ url_for('match_detail', id=match['id']) }}">
+            <p>{{ match['home_team']['abbreviation'] }} VS {{ match['visitor_team']['abbreviation'] }} - {{ match['date'].split('T')[0] }}</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

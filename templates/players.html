@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Joueurs{% endblock %}
+{% block content %}
+<h1>Liste des joueurs</h1>
+<div class="cards">
+    {% for player in players %}
+    <div class="card">
+        <a href="{{ url_for('player_detail', id=player['id']) }}">
+            <p>{{ player['first_name'] }} {{ player['last_name'] }}</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
